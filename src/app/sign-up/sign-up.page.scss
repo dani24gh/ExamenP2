@@ -1,0 +1,91 @@
+ion-content {
+    --background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+label {
+    color: #4a4e69;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #b0c4de;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #7b68ee;
+    box-shadow: 0px 0px 8px rgba(123, 104, 238, 0.5);
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    text-align: center;
+}
+
+/* Crear cuenta button */
+button.create-account-btn {
+    background: linear-gradient(to right, #7b68ee, #9370db);
+    color: white;
+    margin-top: 15px;
+}
+
+button.create-account-btn:hover {
+    background: linear-gradient(to right, #5a49d3, #8050d1);
+}
+
+button.create-account-btn:disabled {
+    background: #b0c4de;
+    cursor: not-allowed;
+}
+
+/* Go to login button */
+button.go-to-login-btn {
+    background: linear-gradient(to right, #87cefa, #4682b4);
+    color: white;
+    margin-top: 10px;
+}
+
+button.go-to-login-btn:hover {
+    background: linear-gradient(to right, #6495ed, #4169e1);
+}
+
+/* Form field styling */
+.form-field {
+    margin-bottom: 1rem;
+}
