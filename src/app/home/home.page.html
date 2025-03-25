@@ -1,20 +1,160 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Lista de calificaciones
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+  <div id="container" class="text-center">
+
+    <ion-label style="display: inline-block;
+    background-color: lightskyblue;
+    border: 2px solid mediumblue;
+    color: mediumblue;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 255, 0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 255, 0.1);">Agrega un alumno nuevo a la lista</ion-label><br><br><br>
+
+    <!--Inicio del formulario-->
+    <form (submit)="addGrade(); $event.preventDefault();">
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Nombre del alumno:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newNameName" name="nameName" placeholder="Nombre//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Apellido del alumno:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newLastName" name="LastName" placeholder="Apellido//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Matrícula del alumno:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newNumberName" name="NumberName" placeholder="Matrícula//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Correo del alumno:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="email"
+        [(ngModel)]="newEmailName" name="EmailName" placeholder="Correo//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Calificación de DAMM:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newDammName" name="DammName" placeholder="Calificacion de DAMM//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Calificacion de OCA:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newOcaName" name="OcaName" placeholder="Calificacion de OCA//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Calificacion de Mate:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newMateName" name="MateName" placeholder="Calificacion de Mate//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Calificacion de PMP:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newPmpName" name="PmpName" placeholder="Calificacion de PMP//" required /><br>
+
+      <ion-label class="text-gray-400 text-lg font-semibold">Calificacion de M3D:</ion-label><br>
+      <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" type="text"
+        [(ngModel)]="newM3dName" name="M3dName" placeholder="Calificacion de M3d//" required /><br>
+
+      <button
+        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
+        type="submit">Agregar</button><br>
+
+    </form>
+    <br><br>
+    <ion-label style="display: inline-block;
+    background-color: lightskyblue;
+    border: 2px solid mediumblue;
+    color: mediumblue;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 255, 0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 255, 0.1);">Alumnos agregados</ion-label><br>
+
+    <!-- Tabla de productos -->
+    <table>
+      <thead>
+        <tr>
+          <th class="text-blue-400 text-lg font-semibold">ID</th>
+          <th class="text-blue-400 text-lg font-semibold">Nombre</th>
+          <th class="text-blue-400 text-lg font-semibold">Apellido</th>
+          <th class="text-blue-400 text-lg font-semibold">Matrícula</th>
+          <th class="text-blue-400 text-lg font-semibold">Correo</th>
+          <th class="text-blue-400 text-lg font-semibold">DAMM</th>
+          <th class="text-blue-400 text-lg font-semibold">OCA</th>
+          <th class="text-blue-400 text-lg font-semibold">Mate</th>
+          <th class="text-blue-400 text-lg font-semibold">PMP</th>
+          <th class="text-blue-400 text-lg font-semibold">M3D</th>
+          <th class="text-blue-400 text-lg font-semibold">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of grades$ | async">
+          <td>{{ item.id }}</td>
+
+          <!-- Mostrar input si se está editando, si no, mostrar el nombre -->
+          <td *ngIf="editingGradeId === item.id; else viewMode">
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedNameName" placeholder="Nuevo nombre" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedLastName" placeholder="Nuevo apellido" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedLastName" placeholder="Nuevo apellido" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedNumberName" placeholder="Nueva matricula" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedEmailName" placeholder="Nuevo correo" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedDammName" placeholder="Nueva calificacion" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedOcaName" placeholder="Nueva calificacion" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedMateName" placeholder="Nueva calificacion" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedPmpName" placeholder="Nueva calificacion" />
+            <input class="border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              [(ngModel)]="editedM3dName" placeholder="Nueva calificacion" />
+          </td>
+
+          <ng-template #viewMode>
+            <td>{{ item.name }}</td>
+            <td>{{ item.last }}</td>
+            <td>{{ item.number }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.damm }}</td>
+            <td>{{ item.oca }}</td>
+            <td>{{ item.mate }}</td>
+            <td>{{ item.pmp }}</td>
+            <td>{{ item.m3d }}</td>
+          </ng-template>
+
+          <td>
+            <!-- Botón Editar / Guardar -->
+            <button
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              style="margin: 5px;" *ngIf="editingGradeId !== item.id" (click)="startEdit(item)">Editar</button>
+            <button
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              style="margin: 5px;" *ngIf="editingGradeId === item.id" (click)="saveEdit(item.id!)">Guardar</button>
+
+            <!-- Botón Eliminar -->
+            <button
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              [disabled]="!item.id" (click)="deleteGrade(item.id!)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button (click)="onLogout()"
+      class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900">
+      Cerrar sesion</button>
+
   </div>
 </ion-content>
